@@ -13,17 +13,32 @@ new_ver=`echo $tag_ver + $inc | bc`
 
 new_tag='v'$new_ver
 
-echo $new_tag
+echo 'Git Status'
+
+git status 
+
+echo 'Adding changes to git'
 
 git add .
 
+echo 'Status After Addition'
+
+git status
+
+echo 'Commiting changes with message:'$1
+
 git commit -m "$1"
+
+echo 'Creating new tag:'$new_tag
 
 git tag $new_tag
 
+echo'Pushing Tag '$new_tag' to remote'
+ 
 git push origin $new_tag
 
-echo 'Everything Completed'
+echo 'Everything completed'
+
 
 
 
